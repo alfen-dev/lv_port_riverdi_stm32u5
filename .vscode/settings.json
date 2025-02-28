@@ -1,0 +1,53 @@
+{
+    "files.associations": {
+        "cmsis_os2.h": "c",
+        "main.h": "c",
+        "lvgl.h": "c",
+        "stm32u5xx_it.h": "c",
+        "ConsoleRTT.C": "cpp",
+        "stm32u5xx_hal_uart.h": "c",
+        "logger.h": "c",
+        "usart.h": "c",
+        "asc11_ui.h": "c",
+        "asc11_dt.h": "c",
+        "consoleuart.h": "c",
+        "stm32u5xx_hal.h": "c",
+        "consolertt.h": "c",
+        "consoleuarthalbindings.h": "c",
+        "asc11app.h": "c",
+        "asc11uiscreens.h": "c",
+        "rtc.h": "c",
+        "asc11datetime.h": "c",
+        "commandprocessor.h": "c",
+        "asc11uidisplaybrightness.h": "c",
+        "stringutil.h": "c",
+        "stm32u599xx.h": "c",
+        "tim.h": "c",
+        "minmax.h": "c",
+        "task.h": "c",
+        "lvgl_port_display.h": "c",
+        "lv_types.h": "c",
+        "lv_draw_sw_helium.h": "c"
+    },
+    "makefile.makePath": "C:\\ST\\STM32CubeIDE_1.17.0\\STM32CubeIDE\\plugins\\com.st.stm32cube.ide.mcu.externaltools.make.win32_2.2.0.202409170845\\tools\\bin\\make.exe",
+    "terminal.integrated.env.windows": {
+        "path": "${env:PATH}:C:\\ST\\STM32CubeIDE_1.17.0\\STM32CubeIDE\\plugins\\com.st.stm32cube.ide.mcu.externaltools.make.win32_2.2.0.202409170845\\tools\\bin"
+    },
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": {
+            "source": "PowerShell",
+            "icon": "terminal-powershell"
+        },
+        "Command Prompt": {
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": [],
+            "icon": "terminal-cmd"
+        },
+        "Git Bash": {
+            "source": "Git Bash"
+        }
+    }
+}
