@@ -83,9 +83,38 @@ static void MX_NVIC_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
-#include "lvgl/src/draw/nema_gfx/lv_draw_nema_gfx.h"
+//#include "lvgl/src/draw/nema_gfx/lv_draw_nema_gfx.h"
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+#define max(a,b) \
+   ({ __typeof__ (a) _a = (a); \
+       __typeof__ (b) _b = (b); \
+     _a > _b ? _a : _b; })
+#define min(a,b) \
+   ({ __typeof__ (a) _a = (a); \
+       __typeof__ (b) _b = (b); \
+     _a < _b ? _a : _b; })
+
+void lvgl_log_write_string(signed char level, const char * str)
+{
+    /*Send the logs via serial port*/
+    char* level_str = "";
+    if(level == LV_LOG_LEVEL_ERROR) level_str = "ERROR";
+    else if(level == LV_LOG_LEVEL_WARN)  level_str = "WARN ";
+    else if(level == LV_LOG_LEVEL_INFO)  level_str = "INFO ";
+    else if(level == LV_LOG_LEVEL_TRACE) level_str = "TRACE";
+
+    if ( str != NULL )
+    {
+        // Remove trailing newline (lvgl9)
+        int s = max(strlen(str) - 1, 0);
+        ((char*)str)[s] = '\0';
+
+        SEGGER_RTT_printf(0, "%7s: %s\n", level_str, str);
+
+    }
+}
 
 /* USER CODE END 0 */
 
@@ -145,6 +174,7 @@ int main(void)
 	MX_RTC_Init();
 	MX_SPI1_Init();
 	MX_SPI2_Init();
+//    MX_TIM1_Init();
 	MX_TIM3_Init();
 	MX_TIM5_Init();
 	MX_TIM6_Init();
@@ -180,7 +210,16 @@ int main(void)
 	/* lvgl demo */
 	//  lv_demo_widgets();
 	//lv_demo_music();
-	lv_demo_benchmark();
+	//lv_demo_benchmark();
+	
+	//working:
+	//lv_demo_widgets();
+	//lv_example_lottie_1();
+    // lv_example_qrcode_1();
+	// lv_example_thorvg_svg_1();
+
+	lv_example_lvgl_svg_1();
+
 
 	/* USER CODE END 2 */
 

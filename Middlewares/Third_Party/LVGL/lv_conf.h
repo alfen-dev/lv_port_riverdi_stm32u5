@@ -87,7 +87,7 @@
  *====================*/
 
 /** Default display refresh, input device read and animation step period. */
-#define LV_DEF_REFR_PERIOD  33      /**< [ms] */
+#define LV_DEF_REFR_PERIOD  100      /**< [ms] */
 
 /** Default Dots Per Inch. Used to initialize default sizes such as widgets sized, style paddings.
  * (Not so important, you can adjust it to modify default sizes and spaces.) */
@@ -329,7 +329,7 @@
  *-----------*/
 
 /** Enable log module */
-#define LV_USE_LOG 0
+#define LV_USE_LOG 1
 #if LV_USE_LOG
     /** Set value to one of the following levels of logging detail:
      *  - LV_LOG_LEVEL_TRACE    Log detailed information.
@@ -338,7 +338,8 @@
      *  - LV_LOG_LEVEL_ERROR    Log only critical issues, when system may fail.
      *  - LV_LOG_LEVEL_USER     Log only custom log messages added by the user.
      *  - LV_LOG_LEVEL_NONE     Do not log anything. */
-    #define LV_LOG_LEVEL LV_LOG_LEVEL_WARN
+    //#define LV_LOG_LEVEL LV_LOG_LEVEL_WARN
+    #define LV_LOG_LEVEL LV_LOG_LEVEL_INFO
 
     /** - 1: Print log with 'printf';
      *  - 0: User needs to register a callback with `lv_log_register_print_cb()`. */
@@ -347,7 +348,8 @@
     /** Set callback to print logs.
      *  E.g `my_print`. The prototype should be `void my_print(lv_log_level_t level, const char * buf)`.
      *  Can be overwritten by `lv_log_register_print_cb`. */
-    //#define LV_LOG_PRINT_CB
+    extern void lvgl_log_write_string(signed char level, const char * str);
+    #define LV_LOG_PRINT_CB lvgl_log_write_string
 
     /** - 1: Enable printing timestamp;
      *  - 0: Disable printing timestamp. */
@@ -358,15 +360,15 @@
     #define LV_LOG_USE_FILE_LINE 1
 
     /* Enable/disable LV_LOG_TRACE in modules that produces a huge number of logs. */
-    #define LV_LOG_TRACE_MEM        1   /**< Enable/disable trace logs in memory operations. */
-    #define LV_LOG_TRACE_TIMER      1   /**< Enable/disable trace logs in timer operations. */
-    #define LV_LOG_TRACE_INDEV      1   /**< Enable/disable trace logs in input device operations. */
-    #define LV_LOG_TRACE_DISP_REFR  1   /**< Enable/disable trace logs in display re-draw operations. */
+    #define LV_LOG_TRACE_MEM        0   /**< Enable/disable trace logs in memory operations. */
+    #define LV_LOG_TRACE_TIMER      0   /**< Enable/disable trace logs in timer operations. */
+    #define LV_LOG_TRACE_INDEV      0   /**< Enable/disable trace logs in input device operations. */
+    #define LV_LOG_TRACE_DISP_REFR  0   /**< Enable/disable trace logs in display re-draw operations. */
     #define LV_LOG_TRACE_EVENT      1   /**< Enable/disable trace logs in event dispatch logic. */
     #define LV_LOG_TRACE_OBJ_CREATE 1   /**< Enable/disable trace logs in object creation (core `obj` creation plus every widget). */
     #define LV_LOG_TRACE_LAYOUT     1   /**< Enable/disable trace logs in flex- and grid-layout operations. */
     #define LV_LOG_TRACE_ANIM       1   /**< Enable/disable trace logs in animation logic. */
-    #define LV_LOG_TRACE_CACHE      1   /**< Enable/disable trace logs in cache operations. */
+    #define LV_LOG_TRACE_CACHE      0   /**< Enable/disable trace logs in cache operations. */
 #endif  /*LV_USE_LOG*/
 
 /*-------------
@@ -526,11 +528,11 @@
 #define LV_ATTRIBUTE_EXTERN_DATA
 
 /** Use `float` as `lv_value_precise_t` */
-#define LV_USE_FLOAT            0
+#define LV_USE_FLOAT            1
 
 /** Enable matrix support
  *  - Requires `LV_USE_FLOAT = 1` */
-#define LV_USE_MATRIX           0
+#define LV_USE_MATRIX           1
 
 /** Include `lvgl_private.h` in `lvgl.h` to access internal data and functions by default */
 #define LV_USE_PRIVATE_API		0
@@ -710,7 +712,7 @@
 
 #define LV_USE_LIST       1
 
-#define LV_USE_LOTTIE     0  /**< Requires: lv_canvas, thorvg */
+#define LV_USE_LOTTIE     1  /**< Requires: lv_canvas, thorvg */
 
 #define LV_USE_MENU       1
 
@@ -889,7 +891,7 @@
 #define LV_USE_RLE 0
 
 /** QR code library */
-#define LV_USE_QRCODE 0
+#define LV_USE_QRCODE 1
 
 /** Barcode code library */
 #define LV_USE_BARCODE 0
@@ -914,14 +916,14 @@
 #endif
 
 /** Rlottie library */
-#define LV_USE_RLOTTIE 0
+#define LV_USE_RLOTTIE 1
 
 /** Enable Vector Graphic APIs
  *  - Requires `LV_USE_MATRIX = 1` */
-#define LV_USE_VECTOR_GRAPHIC  0
+#define LV_USE_VECTOR_GRAPHIC  1
 
 /** Enable ThorVG (vector graphics library) from the src/libs folder */
-#define LV_USE_THORVG_INTERNAL 0
+#define LV_USE_THORVG_INTERNAL 1
 
 /** Enable ThorVG by assuming that its installed and linked to the project */
 #define LV_USE_THORVG_EXTERNAL 0
@@ -934,9 +936,9 @@
 
 /*SVG library
  *  - Requires `LV_USE_VECTOR_GRAPHIC = 1` */
-#define LV_USE_SVG 0
-#define LV_USE_SVG_ANIMATION 0
-#define LV_USE_SVG_DEBUG 0
+#define LV_USE_SVG 1
+#define LV_USE_SVG_ANIMATION 1
+#define LV_USE_SVG_DEBUG 1
 
 /** FFmpeg library for image decoding and playing videos.
  *  Supports all major image formats so do not enable other image decoder with it. */
