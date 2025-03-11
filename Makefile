@@ -149,6 +149,7 @@ LVGL_LIB=$(BIN_LIB_FOLDER)/lib$(LVGL).a
 
 SOURCES=
 SOURCES+=$(wildcard ./Core/Src/*.c)
+SOURCES+=$(wildcard ./Core/Src/*.cpp)
 SOURCES+=$(wildcard ./Shared/*.c)
 SOURCES+=$(wildcard ./Middlewares/Third_Party/FreeRTOS/Source/*.c)
 SOURCES+=$(wildcard ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM33_NTZ/non_secure/*.c)
@@ -177,8 +178,12 @@ INC_DIRS+=./Middlewares/Third_Party/FreeRTOS/Source/include
 INC_DIRS+=./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM33_NTZ/non_secure
 INC_DIRS+=./Middlewares/Third_Party/CMSIS/RTOS2/Include
 INC_DIRS+=./Middlewares/Third_Party/LVGL
+INC_DIRS+=./Middlewares/Third_Party/LVGL/lvgl/src/libs/thorvg
 INC_DIRS+=./Middlewares/Third_Party/RTT/Config
 INC_DIRS+=./Middlewares/Third_Party/RTT/RTT
+
+INC_DIRS+=./Middlewares/Third_Party/LVGL/lvgl/src/libs/thorvg/src/bindings/capi
+INC_DIRS+=./Middlewares/Third_Party/LVGL/lvgl/src/libs/thorvg/inc
 
 
 INC_DIRS+=$(dir $(SOURCES))
