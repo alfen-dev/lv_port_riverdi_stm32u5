@@ -217,9 +217,8 @@ int main(void)
 	//lv_example_lottie_1();
     // lv_example_qrcode_1();
 	// lv_example_thorvg_svg_1();
-
 	lv_example_lvgl_svg_1();
-
+	//lv_example_lvgl_svg_direct_1();
 
 	/* USER CODE END 2 */
 
