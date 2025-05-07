@@ -62,19 +62,22 @@ BIN_LIB_FOLDER:=$(BUILD_FOLDER)/bin
 
 ################################################################################
 
-ifeq ($(DEBUG), 1)
+#ifeq ($(DEBUG), 1)
+#	CFLAGS +=-DDEBUG
+#	CFLAGS +=-g3 
+#	CFLAGS +=-Og
+#
+#	ASFLAGS +=-DDEBUG
+#	ASFLAGS +=-g3 
+#else
+#	CFLAGS +=-DNDEBUG
+#	CFLAGS +=-O3
+#
+#	ASFLAGS +=-DNDEBUG
+#endif
 	CFLAGS +=-DDEBUG
-	CFLAGS +=-g3 
-	CFLAGS +=-Og
-
-	ASFLAGS +=-DDEBUG
-	ASFLAGS +=-g3 
-else
-	CFLAGS +=-DNDEBUG
-	CFLAGS +=-O3
-
-	ASFLAGS +=-DNDEBUG
-endif
+	CFLAGS +=-g3 -ggdb
+	CFLAGS +=-O0
 
 	CFLAGS +=-mcpu=$(MCU)
 # Allow strptime:

@@ -38,7 +38,11 @@
         "lv_label_private.h": "c",
         "newuimain.h": "c",
         "lv_svg.h": "c",
-        "lv_log.h": "c"
+        "lv_log.h": "c",
+        "lv_svg_direct.h": "c",
+        "lv_tvg_canvas.h": "c",
+        "lv_conf_internal.h": "c",
+        "lv_tvg_canvas_private.h": "c"
     },
     "makefile.makePath": "C:\\ST\\STM32CubeIDE_1.17.0\\STM32CubeIDE\\plugins\\com.st.stm32cube.ide.mcu.externaltools.make.win32_2.2.0.202409170845\\tools\\bin\\make.exe",
     "terminal.integrated.env.windows": {

@@ -51,6 +51,7 @@
 #include "lvgl/demos/lv_demos.h"
 #include "lvgl_port_touch.h"
 #include "lvgl_port_display.h"
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -217,8 +218,11 @@ int main(void)
 	//lv_example_lottie_1();
     // lv_example_qrcode_1();
 	// lv_example_thorvg_svg_1();
-	lv_example_lvgl_svg_1();
+	//lv_example_lvgl_svg_1();
 	//lv_example_lvgl_svg_direct_1();
+
+	lv_example_canvas_anim_curve();
+
 
 	/* USER CODE END 2 */
 

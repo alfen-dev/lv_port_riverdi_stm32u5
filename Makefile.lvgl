@@ -51,19 +51,23 @@ MD          = mkdir -p
 
 ################################################################################
 
-ifeq ($(DEBUG), 1)
+#ifeq ($(DEBUG), 1)
+#	CFLAGS +=-DDEBUG
+#	CFLAGS +=-g3 
+#	CFLAGS +=-Og
+#
+#	ASFLAGS +=-DDEBUG
+#	ASFLAGS +=-g3 
+#else
+#	CFLAGS +=-DNDEBUG
+#	CFLAGS +=-O3
+#
+#	ASFLAGS +=-DNDEBUG
+#endif
 	CFLAGS +=-DDEBUG
-	CFLAGS +=-g3 
-	CFLAGS +=-Og
+	CFLAGS +=-g3 -ggdb
+	CFLAGS +=-O0
 
-	ASFLAGS +=-DDEBUG
-	ASFLAGS +=-g3 
-else
-	CFLAGS +=-DNDEBUG
-	CFLAGS +=-O3
-
-	ASFLAGS +=-DNDEBUG
-endif
 
 	CFLAGS +=-mcpu=$(MCU)
 # Allow strptime:
@@ -237,6 +241,7 @@ SOURCES+=$(wildcard ./Middlewares/Third_Party/LVGL/lvgl/examples/widgets/svg/*.c
 
 #LV_USE_CANVAS
 #SOURCES+=$(wildcard ./Middlewares/Third_Party/LVGL/lvgl/examples/widgets/canvas/*.c)
+SOURCES+=./Middlewares/Third_Party/LVGL/lvgl/examples/widgets/canvas/lv_example_canvas_anim_curve.c
 
 #SOURCES+=$(wildcard ./Middlewares/Third_Party/LVGL/lvgl/examples/anim/*.c)
 
